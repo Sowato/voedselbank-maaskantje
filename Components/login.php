@@ -1,10 +1,27 @@
-<?php 
-// dan de post van index verwerken voor inlog.
+<?php
+// Processes the login form POST from index.php
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
 
+require_once __DIR__ . '/db_conn.php';
 
+$error    = '';
+$email    = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
 
+if ($email === '' || $password === '') {
+    $error = 'Vul alle velden in.';
+} else {
+    $db   = (new Database())->getConnection();
+    $stmt = $db->prepare('SELECT id, name, password FROM users WHERE email = ?');
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-
-
-?>
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id']   = $user['id'];
+        $_SESSION['user_name'] = $user['name'];
+        header('Location: Pages/dashboard.php');
+        exit;
+    } else {
+        $error = 'Ongeldig e-mailadres of wachtwoord.';
+    }
+}
