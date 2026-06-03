@@ -46,6 +46,12 @@ $role = $_SESSION['user_role'] ?? '';
             <p>Beheer van klanten met hun specifieke wensen en gezinssamenstelling en overzicht afgenomen voedselpakketten.</p>
             <a href="klant.php" class="btn">Ga naar klanten</a>
         </div>
+
+        <div class="card">
+            <h3>Categorieën</h3>
+            <p>Beheer de productcategorieën voor de voorraad. Aanmaken, bewerken en verwijderen van categorieën.</p>
+            <a href="categorieen.php" class="btn">Categorieën beheren</a>
+        </div>
         <?php endif; ?>
 
     </div>
