@@ -222,3 +222,43 @@ body{
     margin:20px;
     border-radius:5px;
 }
+
+.content {
+    padding: 20px;
+}
+
+/* 2x2 grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* card styling */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* titel */
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* knop */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #2d6cdf;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background: #1f4fb5;
+}
