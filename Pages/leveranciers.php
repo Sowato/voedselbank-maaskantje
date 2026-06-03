@@ -1,5 +1,21 @@
 <?php
 require_once __DIR__ . '/../Components/db_conn.php';
+require_once __DIR__ . '/../Components/navbar.php';
+require_once __DIR__ . '/../Components/funcs.php';
+requireLogin();
+$role = $_SESSION['user_role'] ?? '';
+?>
+<!doctype html>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Leveranciers overzicht</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="leveranciers-page">
+	<?php
 
 $db = new Database();
 $conn = $db->getConnection();
@@ -15,16 +31,6 @@ try {
 	$error = 'Kon leveranciers niet laden.';
 }
 ?>
-<!doctype html>
-<html lang="nl">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Leveranciers overzicht</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-	
 
 	<?php if (!empty($error)): ?>
 		<p style="color: red"><?= htmlspecialchars($error) ?></p>
@@ -35,7 +41,7 @@ try {
 	<?php else: ?>
         
            
-		<table>
+		<table class="leveranciers-table">
             <thead><tr><th><h1>Leveranciers<h1></th></tr></thead>
 			<thead>
 				<tr>
