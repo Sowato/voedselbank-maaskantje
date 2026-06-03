@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2026 at 09:31 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gegenereerd op: 03 jun 2026 om 15:01
+-- Serverversie: 10.4.32-MariaDB
+-- PHP-versie: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Tabelstructuur voor tabel `category`
 --
 
 CREATE TABLE `category` (
@@ -33,10 +33,44 @@ CREATE TABLE `category` (
   `omschrijving` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `category`
+--
+
+INSERT INTO `category` (`id`, `code`, `omschrijving`) VALUES
+(1, 'DIEPVRIES', 'diepvriesproducten'),
+(11, 'AARD', 'Aardappelen'),
+(12, 'GROEN', 'Groenten'),
+(13, 'FRUIT', 'Fruit'),
+(14, 'KAAS', 'Kaas'),
+(15, 'VLEES', 'Vleeswaren'),
+(16, 'ZUIV', 'Zuivel'),
+(17, 'PLANT', 'Plantaardig'),
+(18, 'EIER', 'Eieren'),
+(19, 'BAK', 'Bakkerij'),
+(20, 'BANK', 'Banket'),
+(21, 'FRIS', 'Frisdrank'),
+(22, 'SAP', 'Sappen'),
+(23, 'KOF', 'Koffie en thee'),
+(24, 'PASTA', 'Pasta'),
+(25, 'RIJST', 'Rijst'),
+(26, 'WORLD', 'Wereldkeuken'),
+(27, 'SOEP', 'Soepen'),
+(28, 'SAUS', 'Sauzen'),
+(29, 'KRUID', 'Kruiden'),
+(30, 'OLIE', 'Olie'),
+(31, 'SNOEP', 'Snoep'),
+(32, 'KOEK', 'Koek'),
+(33, 'CHIPS', 'Chips'),
+(34, 'CHOC', 'Chocolade'),
+(35, 'BABY', 'Baby'),
+(36, 'VERZ', 'Verzorging'),
+(37, 'HYG', 'Hygiëne');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inhoud`
+-- Tabelstructuur voor tabel `inhoud`
 --
 
 CREATE TABLE `inhoud` (
@@ -49,7 +83,7 @@ CREATE TABLE `inhoud` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klant`
+-- Tabelstructuur voor tabel `klant`
 --
 
 CREATE TABLE `klant` (
@@ -67,7 +101,7 @@ CREATE TABLE `klant` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klant_wens`
+-- Tabelstructuur voor tabel `klant_wens`
 --
 
 CREATE TABLE `klant_wens` (
@@ -78,7 +112,7 @@ CREATE TABLE `klant_wens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leverancier`
+-- Tabelstructuur voor tabel `leverancier`
 --
 
 CREATE TABLE `leverancier` (
@@ -95,7 +129,7 @@ CREATE TABLE `leverancier` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `levering`
+-- Tabelstructuur voor tabel `levering`
 --
 
 CREATE TABLE `levering` (
@@ -111,7 +145,7 @@ CREATE TABLE `levering` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messenger_messages`
+-- Tabelstructuur voor tabel `messenger_messages`
 --
 
 CREATE TABLE `messenger_messages` (
@@ -127,7 +161,7 @@ CREATE TABLE `messenger_messages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pakket`
+-- Tabelstructuur voor tabel `pakket`
 --
 
 CREATE TABLE `pakket` (
@@ -141,7 +175,7 @@ CREATE TABLE `pakket` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Tabelstructuur voor tabel `product`
 --
 
 CREATE TABLE `product` (
@@ -152,10 +186,18 @@ CREATE TABLE `product` (
   `aantal` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `product`
+--
+
+INSERT INTO `product` (`id`, `category_id`, `streepjescode`, `omschrijving`, `aantal`) VALUES
+(1, 11, '12329i4u305', 'patat', 1),
+(2, 19, '32342565568', 'brood', 4);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabelstructuur voor tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -163,12 +205,21 @@ CREATE TABLE `user` (
   `email` varchar(180) NOT NULL,
   `roles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `password` varchar(255) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
+(1, 'd@gmail.com', 'Admin\r\n', '$2y$10$NYXU2XEoq3JaW2.ZyeW89.qzAD4/fN8eukNM.UqAiUvZWgfPjTlKy'),
+(2, 'dj@gmail.com', 'klant', '$2y$10$U4/5uh/dZTWbuQqn7wcE7.Pg2kjL8iL7dDIRDdYXYnXwIAmRLJaRa'),
+(3, 'medewerker@gmail.com', 'medewerker', '$2y$10$LYJaD/M51ETxGOOHpuvUdeHjWPNT7vuOVy9tf23b45GzlbpEeV8B2');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wens`
+-- Tabelstructuur voor tabel `wens`
 --
 
 CREATE TABLE `wens` (
@@ -177,17 +228,17 @@ CREATE TABLE `wens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `category`
+-- Indexen voor tabel `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `inhoud`
+-- Indexen voor tabel `inhoud`
 --
 ALTER TABLE `inhoud`
   ADD PRIMARY KEY (`id`),
@@ -195,13 +246,13 @@ ALTER TABLE `inhoud`
   ADD KEY `IDX_1DB54D1E4584665A` (`product_id`);
 
 --
--- Indexes for table `klant`
+-- Indexen voor tabel `klant`
 --
 ALTER TABLE `klant`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `klant_wens`
+-- Indexen voor tabel `klant_wens`
 --
 ALTER TABLE `klant_wens`
   ADD PRIMARY KEY (`klant_id`,`wens_id`),
@@ -209,13 +260,13 @@ ALTER TABLE `klant_wens`
   ADD KEY `IDX_176492502A12754E` (`wens_id`);
 
 --
--- Indexes for table `leverancier`
+-- Indexen voor tabel `leverancier`
 --
 ALTER TABLE `leverancier`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `levering`
+-- Indexen voor tabel `levering`
 --
 ALTER TABLE `levering`
   ADD PRIMARY KEY (`id`),
@@ -224,7 +275,7 @@ ALTER TABLE `levering`
   ADD KEY `IDX_19D935546E3FE6C9` (`leverancier_id`);
 
 --
--- Indexes for table `messenger_messages`
+-- Indexen voor tabel `messenger_messages`
 --
 ALTER TABLE `messenger_messages`
   ADD PRIMARY KEY (`id`),
@@ -233,7 +284,7 @@ ALTER TABLE `messenger_messages`
   ADD KEY `IDX_75EA56E016BA31DB` (`delivered_at`);
 
 --
--- Indexes for table `pakket`
+-- Indexen voor tabel `pakket`
 --
 ALTER TABLE `pakket`
   ADD PRIMARY KEY (`id`),
@@ -241,109 +292,109 @@ ALTER TABLE `pakket`
   ADD KEY `IDX_F9F58C9B3C427B2F` (`klant_id`);
 
 --
--- Indexes for table `product`
+-- Indexen voor tabel `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_D34A04AD12469DE2` (`category_id`);
 
 --
--- Indexes for table `user`
+-- Indexen voor tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
 
 --
--- Indexes for table `wens`
+-- Indexen voor tabel `wens`
 --
 ALTER TABLE `wens`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `inhoud`
+-- AUTO_INCREMENT voor een tabel `inhoud`
 --
 ALTER TABLE `inhoud`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `klant`
+-- AUTO_INCREMENT voor een tabel `klant`
 --
 ALTER TABLE `klant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `leverancier`
+-- AUTO_INCREMENT voor een tabel `leverancier`
 --
 ALTER TABLE `leverancier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `levering`
+-- AUTO_INCREMENT voor een tabel `levering`
 --
 ALTER TABLE `levering`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `messenger_messages`
+-- AUTO_INCREMENT voor een tabel `messenger_messages`
 --
 ALTER TABLE `messenger_messages`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pakket`
+-- AUTO_INCREMENT voor een tabel `pakket`
 --
 ALTER TABLE `pakket`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `wens`
+-- AUTO_INCREMENT voor een tabel `wens`
 --
 ALTER TABLE `wens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `inhoud`
+-- Beperkingen voor tabel `inhoud`
 --
 ALTER TABLE `inhoud`
   ADD CONSTRAINT `FK_1DB54D1E4584665A` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `FK_1DB54D1ECDE6430C` FOREIGN KEY (`pakket_id`) REFERENCES `pakket` (`id`);
 
 --
--- Constraints for table `klant_wens`
+-- Beperkingen voor tabel `klant_wens`
 --
 ALTER TABLE `klant_wens`
   ADD CONSTRAINT `FK_176492502A12754E` FOREIGN KEY (`wens_id`) REFERENCES `wens` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_176492503C427B2F` FOREIGN KEY (`klant_id`) REFERENCES `klant` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `levering`
+-- Beperkingen voor tabel `levering`
 --
 ALTER TABLE `levering`
   ADD CONSTRAINT `FK_19D935544584665A` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
@@ -351,14 +402,14 @@ ALTER TABLE `levering`
   ADD CONSTRAINT `FK_19D93554A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `pakket`
+-- Beperkingen voor tabel `pakket`
 --
 ALTER TABLE `pakket`
   ADD CONSTRAINT `FK_F9F58C9B3C427B2F` FOREIGN KEY (`klant_id`) REFERENCES `klant` (`id`),
   ADD CONSTRAINT `FK_F9F58C9BA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `product`
+-- Beperkingen voor tabel `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `FK_D34A04AD12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
