@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../Components/funcs.php';
 requireLogin();
+$role = $_SESSION['user_role'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -12,110 +13,41 @@ requireLogin();
 </head>
 <body>
 
-<nav class="navbar">
-
-    <div class="logo">
-        Maaskantje
-    </div>
-
-    <ul class="menu">
-
-        <li>
-            <a href="#">Home</a>
-        </li>
-
-        <li>
-            <a href="leveringen.php">Leveringen</a>
-        </li>
-
-        <li>
-            <a href="#">Uitgifte</a>
-        </li>
-
-        <li>
-            <a href="#">Beheer ▼</a>
-
-            <ul class="dropdown">
-
-                <li>
-                    <a href="#">Leveranciers</a>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="#">Voorraad</a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="#">Magazijn voorraad</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Product voorraad overzicht</a>
-                        </li>
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a href="#">Voedselpakketten</a>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="#">Klanten</a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="#">Beheer klanten</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Pakketten overzicht</a>
-                        </li>
-                    </ul>
-
-                </li>
-
-            </ul>
-
-        </li>
-
-        <li>
-            <a href="#">Admin</a>
-        </li>
-
-    </ul>
-
-    <div class="navbar-user">
-        <a href="../Components/logout.php" class="logout-btn">Uitloggen</a>
-    </div>
-
-</nav>
+<?php include __DIR__ . '/../Components/navbar.php'; ?>
 
 <div class="content">
     <div class="grid">
+
+        <?php if ($role === 'admin' || $role === 'medewerker'): ?>
         <div class="card">
             <h3>Leverancier</h3>
             <p>Beheer van leveranciers: invoeren, verwerken, verwijderen en wijzigen.</p>
-            <a href="#" class="btn">Ga naar leveranciers</a>
+            <a href="leveranciers.php" class="btn">Ga naar leveranciers</a>
         </div>
 
         <div class="card">
             <h3>Voorraad beheer</h3>
             <p>Beheer van de magazijnvoorraad en product voorraad overzicht.</p>
-            <a href="#" class="btn">Ga naar voorraad beheer</a>
+            <a href="magazijnvoorraad.php" class="btn">Ga naar voorraad beheer</a>
         </div>
+        <?php endif; ?>
 
+        <?php if ($role === 'admin' || $role === 'vrijwilliger'): ?>
         <div class="card">
             <h3>Voedselpakketten</h3>
             <p>Samenstellen van een pakket voor een klant met aanwezige producten in het magazijn.</p>
-            <a href="#" class="btn">Ga naar voedselpakketten</a>
+            <a href="voedselpakketen.php" class="btn">Ga naar voedselpakketten</a>
         </div>
+        <?php endif; ?>
 
+        <?php if ($role === 'admin'): ?>
         <div class="card">
             <h3>Klanten</h3>
             <p>Beheer van klanten met hun specifieke wensen en gezinssamenstelling en overzicht afgenomen voedselpakketten.</p>
-            <a href="#" class="btn">Ga somewhere</a>
+            <a href="klant.php" class="btn">Ga naar klanten</a>
         </div>
+        <?php endif; ?>
+
     </div>
 </div>
 
