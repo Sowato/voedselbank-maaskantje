@@ -14,13 +14,7 @@ $_role = $_SESSION['user_role'] ?? '';
             <a href="#">Beheer ▼</a>
             <ul class="dropdown">
                 <li><a href="leveranciers.php">Leveranciers</a></li>
-                <li class="has-submenu">
-                    <a href="#">Voorraad</a>
-                    <ul class="submenu">
-                        <li><a href="magazijnvoorraad.php">Magazijn voorraad</a></li>
-                        <li><a href="#">Product voorraad overzicht</a></li>
-                    </ul>
-                </li>
+                <li><a href="magazijnvoorraad.php">Voorraad</a></li>
                 <?php if ($_role === 'admin'): ?>
                 <li><a href="voedselpakketen.php">Voedselpakketten</a></li>
                 <li class="has-submenu">
@@ -41,7 +35,13 @@ $_role = $_SESSION['user_role'] ?? '';
 
         <?php if ($_role === 'admin'): ?>
         <li><a href="uitgifte.php">Uitgifte</a></li>
-        <li><a href="#">Admin</a></li>
+        <li>
+            <a href="#">Admin ▼</a>
+            <ul class="dropdown">
+                <li><a href="categorieen.php">Categorieën beheren</a></li>
+                <li><a href="admin_gebruiker_overzicht.php">Gebruikers</a></li>
+            </ul>
+        </li>
         <?php endif; ?>
     </ul>
 
