@@ -188,6 +188,31 @@ body {
     color: #fff;
 }
 
-table { border-collapse: collapse; width: 100%; }
+table { border-collapse: collapse; width: 90%; }
 		th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
 		th { background: #f4f4f4; }
+
+
+
+.leveranciers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+body.leveranciers-page {
+    display: block;
+    min-height: 100vh;
+    background: #e8f0fe;
+}
+
+body.leveranciers-page .page-content {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto 40px;
+    padding: 20px;
+}
+
+body.leveranciers-page .navbar {
+    position: relative;
+    width: 100%;
+    top: 0;
+}
