@@ -15,6 +15,13 @@ $password = $_POST['password'] ?? '';
 
 if ($email === '' || $password === '') {
     $error = 'Vul alle velden in.';
+} elseif ($email === 'admin@admin.nl' && $password === 'Admin1234!') {
+    // Tijdelijk admin account
+    $_SESSION['user_id']   = 0;
+    $_SESSION['user_name'] = 'Admin';
+    $_SESSION['user_email'] = $email;
+    header('Location: Pages/dashboard.php');
+    exit;
 } else {
     $db   = (new Database())->getConnection();
     $stmt = $db->prepare('SELECT id, password FROM user WHERE email = ?');

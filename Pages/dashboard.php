@@ -7,61 +7,117 @@ requireLogin();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard – Voedselbank Maaskantje</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        body { align-items: flex-start; padding: 40px 16px; }
-        .dashboard { max-width: 560px; width: 100%; margin: 0 auto; }
-        .top-bar {
-            background: #1565c0;
-            color: #fff;
-            border-radius: 12px;
-            padding: 20px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 16px rgba(21,101,192,.18);
-        }
-        .top-bar h2 { font-size: 18px; font-weight: 700; }
-        .top-bar span { font-size: 13px; opacity: .75; display: block; }
-        .logout-btn {
-            background: rgba(255,255,255,.18);
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 8px 16px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background .2s;
-        }
-        .logout-btn:hover { background: rgba(255,255,255,.3); }
-        .welcome-card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(25,118,210,.10);
-            padding: 32px 28px;
-            text-align: center;
-        }
-        .welcome-card h3 { color: #1565c0; font-size: 20px; margin-bottom: 8px; }
-        .welcome-card p  { color: #64b5f6; font-size: 14px; }
-    </style>
+    <title>Maaskantje</title>
+    <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
-    <div class="dashboard">
-        <div class="top-bar">
-            <div>
-                <h2>Dashboard</h2>
-                <span>Voedselbank Maaskantje</span>
-            </div>
-            <a href="../Components/logout.php" class="logout-btn">Uitloggen</a>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Maaskantje
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="#">Home</a>
+        </li>
+
+        <li>
+            <a href="leveringen.php">Leveringen</a>
+        </li>
+
+        <li>
+            <a href="#">Uitgifte</a>
+        </li>
+
+        <li>
+            <a href="#">Beheer ▼</a>
+
+            <ul class="dropdown">
+
+                <li>
+                    <a href="#">Leveranciers</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">Voorraad</a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">Magazijn voorraad</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Product voorraad overzicht</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#">Voedselpakketten</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">Klanten</a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">Beheer klanten</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Pakketten overzicht</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li>
+            <a href="#">Admin</a>
+        </li>
+
+    </ul>
+
+    <div class="navbar-user">
+        <a href="../Components/logout.php" class="logout-btn">Uitloggen</a>
+    </div>
+
+</nav>
+
+<div class="content">
+    <div class="grid">
+        <div class="card">
+            <h3>Leverancier</h3>
+            <p>Beheer van leveranciers: invoeren, verwerken, verwijderen en wijzigen.</p>
+            <a href="#" class="btn">Ga naar leveranciers</a>
         </div>
-        <div class="welcome-card">
-            <h3>Hallo, <?= htmlspecialchars($_SESSION['user_name']) ?>!</h3>
-            <p>Je bent succesvol ingelogd.</p>
+
+        <div class="card">
+            <h3>Voorraad beheer</h3>
+            <p>Beheer van de magazijnvoorraad en product voorraad overzicht.</p>
+            <a href="#" class="btn">Ga naar voorraad beheer</a>
+        </div>
+
+        <div class="card">
+            <h3>Voedselpakketten</h3>
+            <p>Samenstellen van een pakket voor een klant met aanwezige producten in het magazijn.</p>
+            <a href="#" class="btn">Ga naar voedselpakketten</a>
+        </div>
+
+        <div class="card">
+            <h3>Klanten</h3>
+            <p>Beheer van klanten met hun specifieke wensen en gezinssamenstelling en overzicht afgenomen voedselpakketten.</p>
+            <a href="#" class="btn">Ga somewhere</a>
         </div>
     </div>
+</div>
+
 </body>
 </html>
