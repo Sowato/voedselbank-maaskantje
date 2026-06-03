@@ -31,7 +31,7 @@ require_once __DIR__ . '/../Components/gebruiker_new.php';
         </div>
 
     
-        <form action="/../Components/gebruiker_new.php" method="POST">
+        <form action="../Components/gebruiker_new.php" method="POST">
 
             <!-- email  -->
             <div class="input-group">
@@ -41,8 +41,10 @@ require_once __DIR__ . '/../Components/gebruiker_new.php';
 
              <!-- roles  -->
             <div class="input-group">
-                <label>Rol:</label>
-                <input type="text" name="roles" placeholder="Voer je rol in" required />
+                <label>Rol:</label><br>
+                <input type="checkbox" name="roles[]" value="vrijwilliger"> vrijwilliger<br>
+                <input type="checkbox" name="roles[]" value="magazijnmedewerker"> magazijnmedewerker<br>
+                <input type="checkbox" name="roles[]" value="directie"> directie<br>
             </div>
 
             <!-- Wachtwoord -->
