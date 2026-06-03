@@ -21,6 +21,15 @@ if ($email === '' || $password === '') {
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Tijdelijk admin account
+    if ($email === 'admin@admin.nl' && $password === 'Admin1234!') {
+        $_SESSION['user_id']   = 0;
+        $_SESSION['user_name'] = 'Admin';
+        $_SESSION['user_email'] = $email;
+        header('Location: Pages/dashboard.php');
+        exit;
+    }
+
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id']   = $user['id'];
         $_SESSION['user_name'] = $user['name'];
