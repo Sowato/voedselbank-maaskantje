@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -10,101 +9,7 @@ body{
     background:#f5f5f5;
 }
 
-/* Navbar */
-.navbar{
-    background:#0d6efd;
-    height:60px;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-}
-
-.logo{
-    color:white;
-    font-size:22px;
-    margin-right:40px;
-}
-
-.menu{
-    list-style:none;
-    display:flex;
-}
-
-.menu > li{
-    position:relative;
-}
-
-.menu > li > a{
-    display:block;
-    color:white;
-    text-decoration:none;
-    padding:20px;
-    font-size:18px;
-}
-
-.menu > li:hover{
-    background:rgba(255,255,255,0.1);
-}
-
-/* Dropdown */
-.dropdown{
-    display:none;
-    position:absolute;
-    top:60px;
-    left:0;
-    min-width:250px;
-    background:white;
-    list-style:none;
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
-    border-radius:5px;
-}
-
-.dropdown li{
-    position:relative;
-}
-
-.dropdown a{
-    display:block;
-    padding:15px 20px;
-    text-decoration:none;
-    color:#333;
-    font-size:18px;
-}
-
-.dropdown a:hover{
-    background:#f0f0f0;
-}
-
-.menu li:hover > .dropdown{
-    display:block;
-}
-
-/* Submenu */
-.submenu{
-    display:none;
-    position:absolute;
-    top:0;
-    left:100%;
-    min-width:280px;
-    background:white;
-    list-style:none;
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
-    border-radius:5px;
-}
-
-.dropdown li:hover > .submenu{
-    display:block;
-}
-
-/* Pijltje */
-.has-submenu > a::after{
-    content:" »";
-    float:right;
-}
-
-
 /* NAVBAR */
-
 .navbar{
     background:#0d6efd;
     height:60px;
@@ -113,6 +18,7 @@ body{
     padding:0 20px;
 }
 
+/* LOGO */
 .logo{
     color:#fff;
     font-size:22px;
@@ -120,11 +26,15 @@ body{
     font-weight:normal;
 }
 
+/* MENU */
 .menu{
     list-style:none;
     display:flex;
+    align-items:center;
+    width:100%;
 }
 
+/* MENU ITEMS */
 .menu > li{
     position:relative;
 }
@@ -141,8 +51,25 @@ body{
     background:rgba(255,255,255,0.15);
 }
 
-/* DROPDOWN */
+/* LOGIN BUTTON RIGHT ALIGN */
+.menu .login{
+    margin-left: 30px;
+}
 
+.menu .login a{
+    background:#fff;
+    color:#0d6efd;
+    padding:10px 15px;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.menu .login a:hover{
+    background:#e9ecef;
+}
+
+/* DROPDOWN */
 .dropdown{
     display:none;
     position:absolute;
@@ -176,7 +103,6 @@ body{
 }
 
 /* SUBMENU */
-
 .submenu{
     display:none;
     position:absolute;
@@ -193,54 +119,50 @@ body{
     display:block;
 }
 
+/* PIJLTJE */
 .has-submenu > a::after{
     content:" »";
     float:right;
 }
 
 /* CONTENT */
-
 .content{
     background:#fff;
-    height: 100px;
-
+    height:100px;
 }
 
-
-
-/* 2x2 grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-height: 200px;
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+    max-height:200px;
 }
 
-/* card styling */
-.card {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* CARD */
+.card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* titel */
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
+.card h3{
+    margin-top:0;
+    margin-bottom:10px;
 }
 
-/* knop */
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #2d6cdf;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 15px;
+    background:#2d6cdf;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
 }
 
-.btn:hover {
-    background: #1f4fb5;
+.btn:hover{
+    background:#1f4fb5;
 }
