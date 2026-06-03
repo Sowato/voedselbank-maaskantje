@@ -1,4 +1,10 @@
 <?php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: CRUD systeem voor leveringen. 
+*/
 require_once __DIR__ . '/../Components/funcs.php';
 requireRole(['admin', 'medewerker']);
 require_once __DIR__ . '/../Components/db_conn.php';
