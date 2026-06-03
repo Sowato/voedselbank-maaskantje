@@ -3,7 +3,7 @@ class Database {
     private $db_server = "localhost"; // server naam
     private $db_user = "root"; // usernaam (default is de naam root)
     private $db_pass = ""; // wachtwoord (default is er geen wachtwoord)
-    private $db_name = "duurzaam"; // naam database
+    private $db_name = "maaskantje"; // naam database
     private $conn;
 
     public function __construct() {
