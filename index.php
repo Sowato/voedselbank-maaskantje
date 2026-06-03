@@ -1,4 +1,10 @@
 <?php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: index.php
+*/
 session_start();
 
 if (isset($_SESSION['user_id'])) {
