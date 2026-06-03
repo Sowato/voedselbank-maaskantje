@@ -1,0 +1,4 @@
+<?php
+//hier wachtwoord veranderen
+
+?>
