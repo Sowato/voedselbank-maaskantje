@@ -32,31 +32,21 @@ require_once __DIR__ . '/../Components/gebruiker_new.php';
 
     
         <form action="../Components/gebruiker_new.php" method="POST">
-
-            <!-- email  -->
-            <div class="input-group">
-                <label>E-mailadres:</label>
-                <input type="email" name="email" placeholder="Voer je e-mailadres in" required />
+            <div class="form-group">
+                <label>E-mailadres</label>
+                <input type="email" name="email" placeholder="Voer je e-mailadres in" required>
             </div>
-
-             <!-- roles  -->
-            <div class="input-group">
-                <label>Rol:</label><br>
+            <div class="form-group">
+                <label>Rol</label>
                 <input type="checkbox" name="roles[]" value="vrijwilliger"> vrijwilliger<br>
                 <input type="checkbox" name="roles[]" value="magazijnmedewerker"> magazijnmedewerker<br>
-                <input type="checkbox" name="roles[]" value="directie"> directie<br>
+                <input type="checkbox" name="roles[]" value="directie"> directie
             </div>
-
-            <!-- Wachtwoord -->
-            <div class="input-group">
-                <label>Wachtwoord:</label>
-                <input type="password" name="password" placeholder="Voer je wachtwoord in" required />
+            <div class="form-group">
+                <label>Wachtwoord</label>
+                <input type="password" name="password" placeholder="Voer je wachtwoord in" required>
             </div>
-
-            <!-- toevoegen Button -->
-            <div class="button-row">
-                <button type="submit" name="login" class="login-btn">toevoegen</button>
-            </div>
+            <button type="submit" class="btn">Toevoegen</button>
         </form>
 
     </div>
