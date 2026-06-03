@@ -187,3 +187,7 @@ body {
     background: #1565c0;
     color: #fff;
 }
+
+table { border-collapse: collapse; width: 100%; }
+		th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+		th { background: #f4f4f4; }
