@@ -1,5 +1,10 @@
 <?php
-// Processes the forgot-password form POST from Pages/forgot-password.php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: forgot password
+*/
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
 
 require_once __DIR__ . '/db_conn.php';

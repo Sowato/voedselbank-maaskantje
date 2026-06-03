@@ -1,5 +1,10 @@
 <?php
-// Processes the login form POST from index.php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: login
+*/
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
 
 require_once __DIR__ . '/db_conn.php';
