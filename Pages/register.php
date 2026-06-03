@@ -13,13 +13,18 @@ $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email'] ?? '');
+    $role     = $_POST['role'] ?? '';
     $password = $_POST['password'] ?? '';
     $confirm  = $_POST['confirm'] ?? '';
 
-    if ($email === '' || $password === '' || $confirm === '') {
+    $allowed_roles = ['vrijwilliger', 'medewerker'];
+
+    if ($email === '' || $role === '' || $password === '' || $confirm === '') {
         $error = 'Vul alle velden in.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Voer een geldig e-mailadres in.';
+    } elseif (!in_array($role, $allowed_roles)) {
+        $error = 'Kies een geldige rol.';
     } elseif (strlen($password) < 6) {
         $error = 'Wachtwoord moet minimaal 6 tekens zijn.';
     } elseif ($password !== $confirm) {
@@ -34,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $db->prepare('INSERT INTO user (email, roles, password) VALUES (?, ?, ?)')
-               ->execute([$email, 'vrijwilliger', $hash]);
+               ->execute([$email, $role, $hash]);
             $success = true;
         }
     }
@@ -76,6 +81,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="email" id="email" name="email"
                            placeholder="jij@voorbeeld.nl"
                            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Rol</label>
+                    <div class="role-options">
+                        <label class="role-option <?= ($_POST['role'] ?? '') === 'vrijwilliger' ? 'selected' : '' ?>">
+                            <input type="radio" name="role" value="vrijwilliger"
+                                   <?= ($_POST['role'] ?? '') === 'vrijwilliger' ? 'checked' : '' ?> required>
+                            Vrijwilliger
+                        </label>
+                        <label class="role-option <?= ($_POST['role'] ?? '') === 'medewerker' ? 'selected' : '' ?>">
+                            <input type="radio" name="role" value="medewerker"
+                                   <?= ($_POST['role'] ?? '') === 'medewerker' ? 'checked' : '' ?>>
+                            Medewerker
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Wachtwoord</label>

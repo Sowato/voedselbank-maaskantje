@@ -6,3 +6,11 @@ function requireLogin() {
         exit;
     }
 }
+
+function requireRole(array $roles) {
+    requireLogin();
+    if (!in_array($_SESSION['user_role'] ?? '', $roles)) {
+        header('Location: dashboard.php');
+        exit;
+    }
+}

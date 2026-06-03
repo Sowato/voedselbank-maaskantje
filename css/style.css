@@ -148,6 +148,46 @@ body {
     color: #1565c0;
     border: 1px solid #90caf9;
 }
+
+.role-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.role-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border: 1.5px solid #bbdefb;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1565c0;
+    background: #f5f9ff;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.role-option input[type="radio"] {
+    display: none;
+}
+
+.role-option:hover {
+    border-color: #1976d2;
+    background: #e3f0ff;
+}
+
+.role-option.selected,
+.role-option:has(input:checked) {
+    border-color: #1565c0;
+    background: #1565c0;
+    color: #fff;
+}
+
 table { border-collapse: collapse; width: 100%; }
 		th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
 		th { background: #f4f4f4; }

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../Components/funcs.php';
-requireLogin();
+requireRole(['admin', 'medewerker']);
 require_once __DIR__ . '/../Components/db_conn.php';
 
 $db = (new Database())->getConnection();
@@ -82,39 +82,7 @@ $leveranciers = $db->query('SELECT id, company FROM leverancier ORDER BY company
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">Maaskantje</div>
-    <ul class="menu">
-        <li><a href="dashboard.php">Home</a></li>
-        <li><a href="leveringen.php">Leveringen</a></li>
-        <li><a href="uitgifte.php">Uitgifte</a></li>
-        <li>
-            <a href="#">Beheer ▼</a>
-            <ul class="dropdown">
-                <li><a href="leveranciers.php">Leveranciers</a></li>
-                <li class="has-submenu">
-                    <a href="#">Voorraad</a>
-                    <ul class="submenu">
-                        <li><a href="magazijnvoorraad.php">Magazijn voorraad</a></li>
-                        <li><a href="#">Product voorraad overzicht</a></li>
-                    </ul>
-                </li>
-                <li><a href="voedselpakketen.php">Voedselpakketten</a></li>
-                <li class="has-submenu">
-                    <a href="#">Klanten</a>
-                    <ul class="submenu">
-                        <li><a href="klant.php">Beheer klanten</a></li>
-                        <li><a href="klanten_overzicht.php">Pakketten overzicht</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#">Admin</a></li>
-    </ul>
-    <div class="navbar-user">
-        <a href="../Components/logout.php" class="logout-btn">Uitloggen</a>
-    </div>
-</nav>
+<?php include __DIR__ . '/../Components/navbar.php'; ?>
 
 <div class="content">
 
