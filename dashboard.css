@@ -102,19 +102,6 @@ body{
     float:right;
 }
 
-/* Content */
-.content{
-    height:500px;
-    background:whit*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f5f5f5;
-}
 
 /* NAVBAR */
 
@@ -215,23 +202,18 @@ body{
 
 .content{
     background:#fff;
-    min-height:600px;
-    margin:20px;
-    border:1px solid #ddd;
-}e;
-    margin:20px;
-    border-radius:5px;
+    height: 100px;
+
 }
 
-.content {
-    padding: 20px;
-}
+
 
 /* 2x2 grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    max-height: 200px;
 }
 
 /* card styling */
