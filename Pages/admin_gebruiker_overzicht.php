@@ -1,4 +1,10 @@
 <?php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: Admin overzicht van gebruikers CRUD Systeem
+*/
 require_once __DIR__ . '/../Components/funcs.php';
 requireRole(['admin']);
 require_once __DIR__ . '/../Components/db_conn.php';
