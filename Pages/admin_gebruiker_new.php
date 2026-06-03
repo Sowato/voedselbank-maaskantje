@@ -1,6 +1,6 @@
 <?php
 /*
-Naam: Krishna Sardarsing
+Naam: Kieran Teunissen
 Versie: 1.0
 Datum: 03/06/2026
 Beschrijving: Admin pagina voor het aanmaken van nieuwe gebruikers in het CRUD systeem

@@ -40,7 +40,43 @@ try {
 		<p>Er zijn geen leveranciers gevonden.</p>
 	<?php else: ?>
         
-           
+
+		<!-- Formulier voor het toevoegen van een nieuwe leverancier -->
+		<form class="leverancier-form" action="../Components/leverancier_new.php" method="POST">
+            <div class="form-group">
+                <label>Bedrijfsnaam</label>
+                <input type="company" name="company" placeholder="Voer de bedrijfsnaam in" Value="testbedrijf" >
+            </div>
+            <div class="form-group">
+                <label>Adres</label>
+                <input type="text" name="adres" placeholder="Voer het adres in" Value="teststraat 1" >
+            </div>
+            <div class="form-group">
+                <label>Plaats</label>
+                <input type="text" name="plaats" placeholder="Voer de plaats in" Value="testplaats" >
+            </div>
+            <div class="form-group">
+                <label>Contactpersoon</label>
+                <input type="text" name="contact_persoon" placeholder="Voer de contactpersoon in" Value="testcontact" >
+            </div>
+            <div class="form-group">
+                <label>Telefoon</label>
+                <input type="text" name="telefoon" placeholder="Voer het telefoonnummer in" Value="0000000000" >
+            </div>
+               <div class="form-group">
+                <label>E-mailadres</label>
+                <input type="email" name="email" placeholder="Voer het e-mailadres in" Value="testemail@example.com" >  
+            </div>
+            <div class="form-group">
+                <label>Volgende leveringsdatum</label>
+                <input type="datetime-local" name="volgende_levering_datum" placeholder="Voer de volgende leveringsdatum in" required>
+
+			</div>
+
+			<button type="submit" class="btn">Toevoegen</button>
+		</form>
+
+           <!-- Tabel voor het weergeven van leveranciers -->
 		<table class="leveranciers-table">
             <thead><tr><th><h1>Leveranciers<h1></th></tr></thead>
 			<thead>

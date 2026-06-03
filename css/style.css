@@ -86,6 +86,39 @@ body {
     background: #ffffff;
 }
 
+/* Grid layout for the leveranciers form: two fields per row on wider screens */
+.leverancier-form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.leverancier-form .form-group {
+    margin-bottom: 0;
+}
+.leverancier-form .form-group label {
+    margin-bottom: 6px;
+}
+.leverancier-form .form-group input {
+    width: 100%;
+}
+/* Make the submit button span both columns */
+.leverancier-form .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    .leverancier-form {
+        grid-template-columns: 1fr;
+    }
+    .leverancier-form .btn {
+        justify-self: stretch;
+    }
+}
+
 .btn {
     width: 100%;
     padding: 12px;
