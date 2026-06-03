@@ -17,13 +17,13 @@ if ($email === '' || $password === '') {
     $error = 'Vul alle velden in.';
 } else {
     $db   = (new Database())->getConnection();
-    $stmt = $db->prepare('SELECT id, name, password FROM users WHERE email = ?');
+    $stmt = $db->prepare('SELECT id, password FROM user WHERE email = ?');
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id']   = $user['id'];
-        $_SESSION['user_name'] = $user['name'];
+        $_SESSION['user_email'] = $user['email'];
         header('Location: Pages/dashboard.php');
         exit;
     } else {
