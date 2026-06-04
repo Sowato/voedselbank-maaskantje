@@ -1,8 +1,8 @@
 <?php
 /*
 Naam: Krishna Sardarsing
-Versie: 1.1
-Datum: 03/06/2026
+Versie: 1.3
+Datum: 04/06/2026
 Beschrijving: Admin overzicht van gebruikers CRUD Systeem
 */
 require_once __DIR__ . '/../Components/funcs.php';

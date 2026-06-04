@@ -2,7 +2,7 @@
 /*
 Naam: Krishna Sardarsing
 Versie: 1.2
-Datum: 03/06/2026
+Datum: 04/06/2026
 Beschrijving: crud systeem voor categorieën.
 */
 require_once __DIR__ . '/../Components/funcs.php';
