@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/../Components/db_conn.php';
-require_once __DIR__ . '/../Components/navbar.php';
 require_once __DIR__ . '/../Components/funcs.php';
 requireLogin();
+requireRole(['admin']);
 $role = $_SESSION['user_role'] ?? '';
+require_once __DIR__ . '/../Components/navbar.php';
 ?>
 <!doctype html>
 <html lang="nl">
@@ -13,6 +14,8 @@ $role = $_SESSION['user_role'] ?? '';
 	<title>Leveranciers overzicht</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/leveringen.css">
+	<script src="../Components/funcs.js"></script>
 </head>
 <body class="leveranciers-page">
 	<?php
@@ -36,11 +39,7 @@ try {
 		<p style="color: red"><?= htmlspecialchars($error) ?></p>
 	<?php endif; ?>
 
-	<?php if (empty($leveranciers)): ?>
-		<p>Er zijn geen leveranciers gevonden.</p>
-	<?php else: ?>
-        
-
+	
 		<!-- Formulier voor het toevoegen van een nieuwe leverancier -->
 		<form class="leverancier-form" action="../Components/leverancier_new.php" method="POST">
             <div class="form-group">
@@ -77,6 +76,10 @@ try {
 		</form>
 
            <!-- Tabel voor het weergeven van leveranciers -->
+
+		   <?php if (empty($leveranciers)): ?>
+		<p>Er zijn geen leveranciers gevonden.</p>
+	<?php else: ?>
 		<table class="leveranciers-table">
             <thead><tr><th><h1>Leveranciers<h1></th></tr></thead>
 			<thead>
@@ -88,6 +91,7 @@ try {
 					<th>Email</th>
 					<th>Telefoon</th>
 					<th>Volgende levering datum</th>
+					<th>Acties</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -104,11 +108,16 @@ try {
 								<?= htmlspecialchars(date('Y-m-d H:i', strtotime($l['volgende_levering_datum']))) ?>
 							<?php endif; ?>
 						</td>
+						<td>
+							<a href="leveranciers_edit.php?id=<?= $l['id'] ?>" class="btn btn-edit">Edit</a>
+							<button type="button" class="btn btn-delete" onclick="deleteLeverancier(<?= $l['id'] ?>)">[X]</button>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
 	<?php endif; ?>
+
 
 </body>
 </html>
