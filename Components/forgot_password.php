@@ -29,8 +29,6 @@ if ($email === '') {
         $db->prepare('UPDATE users SET reset_token = ?, reset_expires = ? WHERE email = ?')
            ->execute([$token, $expires, $email]);
 
-        // In productie: stuur dit via e-mail. Nu tonen we de link op het scherm.
-        $reset_link = 'http://localhost/voedselbank-maaskantje/Pages/reset-password.php?token=' . $token;
     }
     // Always show success message to prevent email enumeration
     $sent = true;
