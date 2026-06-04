@@ -81,8 +81,11 @@ try {
                 <input type="number" name="baby" placeholder="Voer het aantal baby's in" Value="0" >
             </div>
             <div class="form-group">
-                <label>wensen</label>
-                <input type="text" name="wensen" placeholder="Voer de wensen in, gescheiden door komma's" Value="wens1, wens2" >
+                <label><h3>wensen</h3></label>
+<label for="geen-varkensvlees">Geen varkensvlees</label><input type="checkbox" id="geen-varkensvlees" name="wensen[]" value="geen varkensvlees" >
+                <label for="veganistisch">veganistisch</label><input type="checkbox" id="veganistisch" name="wensen[]" value="veganistisch" >
+                <label for="vegetarisch">vegetarisch</label><input type="checkbox" id="vegetarisch" name="wensen[]" value="vegetarisch" >
+                <label for="allergisch-voor">allergisch voor</label><input type="text" id="allergisch-voor" name="wensen[]" placeholder="allergisch voor" >
             </div>
 
                 <label>we</label>
@@ -124,7 +127,7 @@ try {
 						<td><?= htmlspecialchars($l['wensen'] ?? 'Geen wensen') ?></td>
 						<td>
 							<a href="klanten_edit.php?id=<?= $l['id'] ?>" class="btn btn-edit">Edit</a>
-							<button type="button" class="btn btn-delete" onclick="deleteLeverancier(<?= $l['id'] ?>)">[X]</button>
+							<button type="button" class="btn btn-delete" onclick="deleteKlant(<?= $l['id'] ?>)">[X]</button>
 						</td>
 					</tr>
 				<?php endforeach; ?>

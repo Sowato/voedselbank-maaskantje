@@ -16,4 +16,22 @@ function deleteLeverancier(id) {
 					}
 				})
 			}
+		function deleteKlant(id) {
+			
+				fetch('../Components/klant_delete.php', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					body: 'id=' + id
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						location.reload();
+					} else {
+						alert('Fout bij verwijderen: ' + data.message);
+					}
+				})
+			}
 		
