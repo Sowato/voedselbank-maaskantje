@@ -21,8 +21,6 @@ $volwassen = trim($_POST['volwassen'] ?? '');
 $kind = trim($_POST['kind'] ?? '');
 $baby = trim($_POST['baby'] ?? '');
 $wensen = $_POST['wensen'] ?? [];
-//split wensen op in een array en trim elke wens
-// $wensen = array_map('trim', explode(',', $_POST['wensen'] ?? ''));
 
 
 if (empty($gezins_naam) || empty($adres) || empty($plaats) || empty($email) || empty($telefoon)) {
