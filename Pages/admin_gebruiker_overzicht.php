@@ -1,7 +1,7 @@
 <?php
 /*
 Naam: Krishna Sardarsing
-Versie: 1.0
+Versie: 1.1
 Datum: 03/06/2026
 Beschrijving: Admin overzicht van gebruikers CRUD Systeem
 */

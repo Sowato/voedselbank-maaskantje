@@ -1,4 +1,10 @@
 <?php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: forgot password
+*/
 session_start();
 
 $error      = '';

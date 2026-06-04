@@ -1,4 +1,10 @@
 <?php
+/*
+Naam: Krishna Sardarsing
+Versie: 1.0
+Datum: 03/06/2026
+Beschrijving: registratiepagina voor nieuwe gebruikers. Alleen toegankelijk voor niet-ingelogde bezoekers.
+*/
 session_start();
 
 if (isset($_SESSION['user_id'])) {
