@@ -45,7 +45,7 @@ try {
     ]);
 
     if ($success) {
-        echo "<script>alert('Leverancier succesvol toegevoegd.'); window.location.href='../Pages/leveranciers.php';</script>";
+        echo "<script> window.location.href='../Pages/leveranciers.php';</script>";
         exit;
     }
 } catch (PDOException $e) {

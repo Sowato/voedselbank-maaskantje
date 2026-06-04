@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../Components/funcs.php';
 requireLogin();
+requireRole(['admin', 'vrijwilliger', 'medewerker']);
 $role = $_SESSION['user_role'] ?? '';
 ?>
 <!DOCTYPE html>
